@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="WebServiceLogin">
+      <implementation-class>Servicios.WebServiceLogin</implementation-class>
+    </service>
+    <service name="WebServiceTareas">
+      <implementation-class>Servicios.WebServiceTareas</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>
