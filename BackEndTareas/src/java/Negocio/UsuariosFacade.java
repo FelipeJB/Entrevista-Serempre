@@ -10,6 +10,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+
 /**
  *
  * @author Felipe
@@ -33,7 +34,11 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
     
         
      if(u.getNombreUsuario().trim().length() != 0 && u.getPassword().trim().length() !=0){
-         
+         Usuarios user = (Usuarios)this.getEntityManager().createNamedQuery("Usuarios.findByNombreUsuario").setParameter("nombreUsuario", u.getNombreUsuario()).getSingleResult();
+         if (user.getPassword().equals(u.getPassword())){
+             return user;
+         }
+         return null;
      }
      
      return null;
