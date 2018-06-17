@@ -1,12 +1,43 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>TareApp - Login</title>
+        <link rel="stylesheet" type="text/css" href="style.css"></link>
     </h:head>
     <h:body>
-        Hello from Facelets
+        
+       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">TareAPP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+  </div>
+    </nav>
+        
+        <div class="jumbotron"><center>
+                <h:graphicImage  width="300" value="logo.png" />
+                <br/><br/>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Iniciar Sesión"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Nombre de Usuario:" for="nombreusuario" />
+                    <h:inputText id="nombreusuario" value="#{MBLogin.user.nombreusuario}" title="Nombreusuario" />
+                    <h:outputLabel value="Contraseña:" for="password" />
+                    <h:inputSecret id="password" value="#{MBLogin.user.password}" title="Password" />
+                    <h:commandButton value="Iniciar Sesion" action="#{MBLogin.iniciarSesion()}"/>  
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+        </center></div>
+        
     </h:body>
 </html>
 
