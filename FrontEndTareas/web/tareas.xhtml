@@ -50,7 +50,7 @@ and open the template in the editor.
                         <f:facet name="header">
                             <h:outputText value="Acción"/>
                         </f:facet>
-                        <h:commandButton value="Editar" action="#{MBListar.agregar()}"/>
+                        <h:commandButton value="Editar" action="#{MBListar.editar(item)}"/>
                         <h:commandButton value="Borrar" action="#{MBListar.eliminar(item)}"/>
                     </h:column>
                 </h:dataTable>

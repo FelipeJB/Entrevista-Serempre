@@ -99,4 +99,16 @@ public class MBListar {
         port.remove(entity);
     }
     
+       public String editar(Tareas tarea){
+       Usuarios u = (Usuarios) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+       if(u!=null){
+           ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            Map<String, Object> sessionMap = externalContext.getSessionMap();
+            sessionMap.put("editar", tarea);
+         return "editar"; 
+       }else{
+         return "index";  
+       }
+    }
+    
 }
