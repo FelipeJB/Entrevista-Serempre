@@ -69,4 +69,13 @@ public class MBListar {
         return "index";
     }
     
+    public String agregar(){
+       Usuarios u = (Usuarios) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+       if(u!=null){
+         return "agregar"; 
+       }else{
+         return "index";  
+       }
+    }
+    
 }
