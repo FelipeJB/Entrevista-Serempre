@@ -34,7 +34,7 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
     
         
      if(u.getNombreusuario().trim().length() != 0 && u.getPassword().trim().length() !=0){
-         Usuarios user = (Usuarios)this.getEntityManager().createNamedQuery("Usuarios.findByNombreusuario").setParameter("nombreUsuario", u.getNombreusuario()).getSingleResult();
+         Usuarios user = (Usuarios)this.getEntityManager().createNamedQuery("Usuarios.findByNombreusuario").setParameter("nombreusuario", u.getNombreusuario()).getSingleResult();
          if (user.getPassword().equals(u.getPassword())){
              return user;
          }
