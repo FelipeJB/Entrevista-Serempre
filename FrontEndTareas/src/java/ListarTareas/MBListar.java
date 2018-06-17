@@ -8,6 +8,7 @@ package ListarTareas;
 import IntegracionLogin.Usuarios;
 import IntegracionTareas.Tareas;
 import IntegracionTareas.WebServiceTareas_Service;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.ws.WebServiceRef;
 
 /**
@@ -76,6 +78,25 @@ public class MBListar {
        }else{
          return "index";  
        }
+    }
+    
+    public String eliminar(Tareas tarea) throws IOException{
+       Usuarios u = (Usuarios) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+       if(u!=null){
+         this.remove(tarea);
+         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+            ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+       }else{
+         return "index";  
+       }
+       return "tareas";
+    }
+
+    private void remove(IntegracionTareas.Tareas entity) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        IntegracionTareas.WebServiceTareas port = service.getWebServiceTareasPort();
+        port.remove(entity);
     }
     
 }
