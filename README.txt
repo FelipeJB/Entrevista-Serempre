@@ -15,9 +15,9 @@ El front end utiliza la tecnología JSF  para las vistas web.
 Tanto el back end como el front end se probaron de manera local, mientras que la base de datos PostgreSQL se encuentra alojada
 en Heroku.
 
-Una demostración del funcionamiento de la aplicación se encuentra en el siguiente video:
+Una demostración del funcionamiento de la aplicación se encuentra en el siguiente video: https://youtu.be/C3WLOKey0BM
 
-Para probar la aplicación se puede ingresar sesión con cualquiera de los siguientes usuarios ya registrados en la base de datos.
+Para probar la aplicación se puede iniciar sesión con cualquiera de los siguientes usuarios ya registrados en la base de datos.
 	Usuario: felipe123		Contraseña: qazwsxedc
 	Usuario: jimenez85		Contraseña: 122345
 	Usuario: ingeniero67		Contraseña: password
