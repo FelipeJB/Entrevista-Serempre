@@ -29,9 +29,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Tareas.findAll", query = "SELECT t FROM Tareas t")
     , @NamedQuery(name = "Tareas.findById", query = "SELECT t FROM Tareas t WHERE t.id = :id")
+    , @NamedQuery(name = "Tareas.findByIdusuario", query = "SELECT t FROM Tareas t WHERE t.idusuario = :idusuario")
     , @NamedQuery(name = "Tareas.findByTitulo", query = "SELECT t FROM Tareas t WHERE t.titulo = :titulo")
-    , @NamedQuery(name = "Tareas.findByDescripcion", query = "SELECT t FROM Tareas t WHERE t.descripcion = :descripcion")
-    , @NamedQuery(name = "Tareas.findByIdUsuario", query = "SELECT t FROM Tareas t WHERE t.idUsuario = :idUsuario")})
+    , @NamedQuery(name = "Tareas.findByDescripcion", query = "SELECT t FROM Tareas t WHERE t.descripcion = :descripcion")})
 public class Tareas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,7 +40,11 @@ public class Tareas implements Serializable {
     @NotNull
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Short id;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "idusuario")
+    private short idusuario;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
@@ -51,31 +55,35 @@ public class Tareas implements Serializable {
     @Size(min = 1, max = 200)
     @Column(name = "descripcion")
     private String descripcion;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idUsuario")
-    private int idUsuario;
 
     public Tareas() {
     }
 
-    public Tareas(Integer id) {
+    public Tareas(Short id) {
         this.id = id;
     }
 
-    public Tareas(Integer id, String titulo, String descripcion, int idUsuario) {
+    public Tareas(Short id, short idusuario, String titulo, String descripcion) {
         this.id = id;
+        this.idusuario = idusuario;
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.idUsuario = idUsuario;
     }
 
-    public Integer getId() {
+    public Short getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Short id) {
         this.id = id;
+    }
+
+    public short getIdusuario() {
+        return idusuario;
+    }
+
+    public void setIdusuario(short idusuario) {
+        this.idusuario = idusuario;
     }
 
     public String getTitulo() {
@@ -92,14 +100,6 @@ public class Tareas implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
     }
 
     @Override

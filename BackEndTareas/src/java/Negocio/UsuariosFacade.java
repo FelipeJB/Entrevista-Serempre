@@ -33,8 +33,8 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
     public Usuarios validarUsuario(Usuarios u){
     
         
-     if(u.getNombreUsuario().trim().length() != 0 && u.getPassword().trim().length() !=0){
-         Usuarios user = (Usuarios)this.getEntityManager().createNamedQuery("Usuarios.findByNombreUsuario").setParameter("nombreUsuario", u.getNombreUsuario()).getSingleResult();
+     if(u.getNombreusuario().trim().length() != 0 && u.getPassword().trim().length() !=0){
+         Usuarios user = (Usuarios)this.getEntityManager().createNamedQuery("Usuarios.findByNombreusuario").setParameter("nombreUsuario", u.getNombreusuario()).getSingleResult();
          if (user.getPassword().equals(u.getPassword())){
              return user;
          }

@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u")
     , @NamedQuery(name = "Usuarios.findById", query = "SELECT u FROM Usuarios u WHERE u.id = :id")
-    , @NamedQuery(name = "Usuarios.findByNombreUsuario", query = "SELECT u FROM Usuarios u WHERE u.nombreUsuario = :nombreUsuario")
+    , @NamedQuery(name = "Usuarios.findByNombreusuario", query = "SELECT u FROM Usuarios u WHERE u.nombreusuario = :nombreusuario")
     , @NamedQuery(name = "Usuarios.findByPassword", query = "SELECT u FROM Usuarios u WHERE u.password = :password")})
 public class Usuarios implements Serializable {
 
@@ -36,12 +36,12 @@ public class Usuarios implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "id")
-    private Integer id;
+    private Short id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
-    @Column(name = "nombreUsuario")
-    private String nombreUsuario;
+    @Column(name = "nombreusuario")
+    private String nombreusuario;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
@@ -51,30 +51,30 @@ public class Usuarios implements Serializable {
     public Usuarios() {
     }
 
-    public Usuarios(Integer id) {
+    public Usuarios(Short id) {
         this.id = id;
     }
 
-    public Usuarios(Integer id, String nombreUsuario, String password) {
+    public Usuarios(Short id, String nombreusuario, String password) {
         this.id = id;
-        this.nombreUsuario = nombreUsuario;
+        this.nombreusuario = nombreusuario;
         this.password = password;
     }
 
-    public Integer getId() {
+    public Short getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Short id) {
         this.id = id;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getNombreusuario() {
+        return nombreusuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setNombreusuario(String nombreusuario) {
+        this.nombreusuario = nombreusuario;
     }
 
     public String getPassword() {
