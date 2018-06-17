@@ -42,5 +42,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/IntegracionLogin"/>
         <delete dir="${build.generated.dir}/jax-wsCache/WebServiceLogin"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WebServiceLogin"/>
+    <target name="wsimport-client-WebServiceTareas" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WebServiceTareas"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WebServiceTareas" destdir="${build.generated.dir}/jax-wsCache/WebServiceTareas" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WebServiceTareas/wsdl/localhost_8080/WebServiceTareas/WebServiceTareas.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WebServiceTareas/WebServiceTareas?WSDL" xnocompile="true" xendorsed="true" package="IntegracionTareas">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WebServiceTareas/wsdl/localhost_8080/WebServiceTareas/WebServiceTareas.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WebServiceTareas"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WebServiceTareas">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WebServiceTareas" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/IntegracionTareas"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/WebServiceTareas"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WebServiceLogin, wsimport-client-WebServiceTareas"/>
 </project>

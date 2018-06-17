@@ -2,4 +2,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/WebServiceLogin/WebServiceLogin?WSDL" uri="src/conf/xml-resources/web-service-references/WebServiceLogin/wsdl/localhost_8080/WebServiceLogin/WebServiceLogin.wsdl"/>
     <system systemId="http://localhost:8080/WebServiceLogin/WebServiceLogin?xsd=1" uri="src/conf/xml-resources/web-service-references/WebServiceLogin/wsdl/localhost_8080/WebServiceLogin/WebServiceLogin.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WebServiceTareas/WebServiceTareas?WSDL" uri="src/conf/xml-resources/web-service-references/WebServiceTareas/wsdl/localhost_8080/WebServiceTareas/WebServiceTareas.wsdl"/>
+    <system systemId="http://localhost:8080/WebServiceTareas/WebServiceTareas?xsd=1" uri="src/conf/xml-resources/web-service-references/WebServiceTareas/wsdl/localhost_8080/WebServiceTareas/WebServiceTareas.xsd_1.xsd"/>
 </catalog>

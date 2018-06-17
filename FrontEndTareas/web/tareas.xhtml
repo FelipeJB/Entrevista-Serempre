@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TareApp - Mis Tareas</title>
+        <link rel="stylesheet" type="text/css" href="style.css"></link>
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">TareAPP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+  </div>
+    </nav>
+        
+        <div class="jumbotron"><center>
+                <h:graphicImage  width="300" value="logo.png" />
+                <br/><br/>
+        <f:view>
+
+
+
+            <h:form>
+                <h1><h:outputText value="Mi Lista de tareas"/></h1>
+                <h:dataTable class="table table-hover" value="#{MBListar.tareas}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Titulo"/>
+                        </f:facet>
+                        <h:outputText value="#{item.titulo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Descripcion"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descripcion}"/>
+                    </h:column>
+                </h:dataTable>
+                <h:commandButton value="Agregar tarea" action="index"/>  
+                <h:commandButton value="Cerrar Sesion" action="#{MBListar.logOut()}"/>  
+                
+            </h:form>
+
+           
+        </f:view>
+        </center></div>
+        
+    </body>
+</html>

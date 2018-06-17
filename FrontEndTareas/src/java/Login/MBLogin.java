@@ -56,9 +56,7 @@ public class MBLogin {
             ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
             Map<String, Object> sessionMap = externalContext.getSessionMap();
             sessionMap.put("usuario", this.user);
-            //return "menu";        
-            FacesContext ctx= FacesContext.getCurrentInstance();
-            ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario válido", "Usuario válido"));
+            return "tareas";                   
         }
         else{
             FacesContext ctx= FacesContext.getCurrentInstance();

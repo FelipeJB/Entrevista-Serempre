@@ -6,6 +6,7 @@
 package Servicios;
 
 import Datos.Tareas;
+import Datos.Usuarios;
 import Negocio.TareasFacade;
 import java.util.List;
 import javax.ejb.EJB;
@@ -63,6 +64,11 @@ public class WebServiceTareas {
     @WebMethod(operationName = "count")
     public int count() {
         return ejbRef.count();
+    }
+
+    @WebMethod(operationName = "getTareas")
+    public List<Tareas> getTareas(@WebParam(name = "u") Usuarios u) {
+        return ejbRef.getTareas(u);
     }
     
 }
